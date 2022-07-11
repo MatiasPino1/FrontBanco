@@ -1,0 +1,192 @@
+
+body {
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+/* SIGNUP START */
+
+.bg {
+color: #30cfd0;
+}
+
+.noselect {
+  -webkit-touch-callout: none;
+    -webkit-user-select: none;
+     -khtml-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+        -webkit-tap-highlight-color: transparent;
+}
+
+.button {
+    width: 150px;
+    height: 50px;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    font-weight:bold;
+    align-items: center;
+    justify-content: center;
+    background-color:  #30cfd0;
+    background-image: linear-gradient(315deg,  #30cfd0 0%, #330867 74%);
+    background-size: 200% 100%;
+    background-position: left;
+    background-repeat: no-repeat;
+    transition: 500ms;
+}
+
+.button:before {
+    content: 'Brighten';
+    color: #330867;
+    font-size: 16px;
+    font-weight:bold;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 140px;
+    height: 40px;
+    background-color: #330867;
+    background-image: linear-gradient(315deg,#330867 0%, #30cfd0 74%);
+    transition: 500ms;
+}
+
+.button:hover {
+    background-position: right;
+}
+
+.button:hover:before {
+    color: rgba(255,255,255,0.8);
+}
+
+.button:focus {
+    outline: none;
+}
+
+
+.su-title {
+  color: #30cfd0;
+}
+
+input:checked {
+  color: white;
+  border: 1px;
+  outline: 2px solid #476dc1;
+}
+.bg-image-vertical {
+  position: relative;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+  }
+  
+  @media (min-width: 1025px) {
+  .h-custom-2 {
+  height: 100%;
+  }
+  }
+
+/* SIGNUP END */
+
+
+/* LOGIN START*/
+.login-form{
+ width: 23rem;
+}
+
+.login-img{
+  height: 100%;
+}
+
+/* TABLE */
+
+h1{
+  font-size: 30px;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 300;
+  text-align: center;
+  margin-bottom: 15px;
+}
+table{
+  width:100%;
+  table-layout: fixed;
+}
+.tbl-header{
+  background-color: rgba(255,255,255,0.3);
+ }
+.tbl-content{
+  height:300px;
+  overflow-x:auto;
+  margin-top: 0px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+th{
+  padding: 20px 15px;
+  text-align: left;
+  font-weight: 500;
+  font-size: 12px;
+  color: #fff;
+  text-transform: uppercase;
+}
+td{
+  padding: 15px;
+  text-align: left;
+  vertical-align:middle;
+  font-weight: 300;
+  font-size: 12px;
+  color: #fff;
+  border-bottom: solid 1px rgba(255,255,255,0.1);
+}
+
+
+/* demo styles */
+
+
+section{
+  margin: 20px;
+}
+@media (min-width: 375px) {
+  section {
+  margin: 2px;
+  }
+  }
+
+/* follow me template */
+.made-with-love {
+  margin-top: 40px;
+  padding: 10px;
+  clear: left;
+  text-align: center;
+  font-size: 10px;
+  font-family: arial;
+  color: #fff;
+}
+.made-with-love i {
+  font-style: normal;
+  color: #F50057;
+  font-size: 14px;
+  position: relative;
+  top: 2px;
+}
+.made-with-love a {
+  color: #fff;
+  text-decoration: none;
+}
+.made-with-love a:hover {
+  text-decoration: underline;
+}
+
+
+/* for custom scrollbar for webkit browser*/
+
+::-webkit-scrollbar {
+    width: 6px;
+} 
+::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+} 
+::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+}
