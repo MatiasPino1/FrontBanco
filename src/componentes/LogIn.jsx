@@ -1,7 +1,48 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Bank from "../public/img/Bank.webp"
 import Vault from "../public/img/vault.png"
+import {useFormik} from "formik"
+import * as yup from "yup"
+import {useNavigate} from "react-router"
 const LogIn = () => {
+  const navigate = useNavigate()
+  const [token,setToken] = useState([])
+  let result = null
+  const formik = useFormik({
+      initialValues:{
+        email:"",
+        password:""
+      },
+      validationSchema:yup.object({
+        email:yup.string()
+          .email("Invalid email adress")
+          .required("Required"),
+          password:yup.string()
+          .max(90,"Must be 20 characters or less")
+          .required("Required")
+          }),
+          onSubmit:async(values)=>{
+            const userLogin= {...values}
+            let result = await fetch("https://apibancoasenjopino.herokuapp.com/users/login",{
+      method:"POST",
+      headers:{"Content-Type":"application/json"},
+      body: JSON.stringify(userLogin)
+  })
+  result = await result.json().then(setToken(result.JWT));
+  let tokenSu = result.JWT;
+  let username = [result.name];
+  let useremail = [result.email]
+  let savingsBank = [result.savingsBank]
+  console.log(result);
+  console.log(tokenSu);
+  localStorage.setItem("token", tokenSu);
+  localStorage.setItem("name", username);
+  localStorage.setItem("savingsBank", savingsBank)
+  localStorage.setItem("email", useremail)
+  
+  navigate("/youraccount")
+}
+  })
   return (
     <section class="vh-100">
         <div class="container-fluid">
@@ -12,33 +53,39 @@ const LogIn = () => {
                 {/* <span class="h1 fw-bold mb-0 text-white">Logo</span> */}
                 <div class="d-flex text-white align-items-center h-custom-2 px-5 ms-xl-4 mt-5 pt-5 pt-xl-0 mt-xl-n5"></div>
 
-                <form className="login-form">
+                <form className="login-form" onSubmit={formik.handleSubmit}>
                   <h3 class="fw-normal mb-3 pb-3">Log in</h3>
 
                   <div class="form-outline mb-4">
                     <input
                       type="email"
-                      id="form2Example18"
+                      name='email'
+                      id="email"
                       class="form-control form-control-lg"
+                      {...formik.getFieldProps("email")}
                     />
-                    <label class="form-label" htmlFor="form2Example18">
-                      Email address
+                    {formik.touched.email && formik.errors.email && <div>{formik.errors.email}</div>}
+                    <label class="form-label" htmlFor="email">
+                      Email
                     </label>
                   </div>
 
                   <div class="form-outline mb-4">
                     <input
                       type="password"
-                      id="form2Example28"
+                      id="password"
                       class="form-control form-control-lg"
+                      name='password'
+                      {...formik.getFieldProps("password")}
                     />
-                    <label class="form-label" htmlFor="form2Example28">
+                    {formik.touched.password && formik.errors.password && <div>{formik.errors.password}</div>}
+                    <label class="form-label" htmlFor="password">
                       Password
                     </label>
                   </div>
 
                   <div class="pt-1 mb-4">
-                    <button class="noselect button" type="button">
+                    <button class="noselect button" type="submit">
                       Login
                     </button>
                   </div>
@@ -49,7 +96,7 @@ const LogIn = () => {
                   </p>
                   <p>
                     Don't have an account?{" "}
-                    <a href="#!" class="link-info">
+                    <a href="/signup" class="link-info">
                       Register here
                     </a>
                   </p>

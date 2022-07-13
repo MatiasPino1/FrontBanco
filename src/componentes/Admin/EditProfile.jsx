@@ -1,55 +1,54 @@
-import React, { useState } from "react";
+import React,{useState} from 'react'
 import {useFormik} from "formik"
 import * as yup from "yup"
-const Signup = () => {
-  const [token,setToken] = useState([])
-  let result = null
-  const formik = useFormik({
-      initialValues:{
-          username:"",
-          password:"",
-          completedName:"",
-          savingsBank:0,
-          email:"",
-          file:""
-      },
-      validationSchema:yup.object({
-          username:yup.string()
-          .max(15,"Must be 15 characters or less")
-          .required("Required"),
-          password:yup.string()
-          .max(90,"Must be 20 characters or less")
-          .required("Required"),
-          completedName:yup.string()
-          .max(30,"Must be 30 characters or less"),
-          savingsBank:yup.number()
-          .required("Required"),
-          email:yup.string()
-          .email("Invalid email adress")
-          .required("Required"),
-          file:yup.mixed().required("file required")
-          }),
-          onSubmit:async(values)=>{
-            const NewUser = {...values}
-         let result= await fetch("https://apibancoasenjopino.herokuapp.com/users/register",{
-      method:"POST",
-      headers:{"Content-Type":"application/json"},
-      body: JSON.stringify(NewUser)
-  })
-  result = await result.json().then(setToken(result.JWT))
-  let tokenSu = result.JWT
-  console.log(result)
-  console.log(tokenSu)
-  localStorage.setItem("token",tokenSu)
-}
-  })
-
+const EditProfile = () => {
+    const [token,setToken] = useState([])
+    const savingsBank= Number(localStorage.getItem("savingsBank"))
+    let result = null
+    const formik = useFormik({
+        initialValues:{
+            username:"",
+            password:"",
+            completedName:"",
+            savingsBank:0,
+            email:"",
+            file:""
+        },
+        validationSchema:yup.object({
+            username:yup.string()
+            .max(15,"Must be 15 characters or less")
+            .required("Required"),
+            password:yup.string()
+            .max(90,"Must be 20 characters or less")
+            .required("Required"),
+            completedName:yup.string()
+            .max(30,"Must be 30 characters or less"),
+            savingsBank:yup.number()
+            .required("Required"),
+            email:yup.string()
+            .email("Invalid email adress")
+            .required("Required"),
+            file:yup.mixed().required("file required")
+            }),
+            onSubmit:async(values)=>{
+              const NewUser = {...values}
+           let result= await fetch(`https://apibancoasenjopino.herokuapp.com/users/changeUser/${savingsBank}`,{
+        method:"PATCH",
+        headers:{"Content-Type":"application/json"},
+        body: JSON.stringify(NewUser)
+    })
+    result = await result.json()
+    console.log(result)
+    
+  }
+    })
   return (
+    
     <>
-      <div className="container mt-5 mb-5">
+    <div className="container mt-5 mb-5">
         <form onSubmit={formik.handleSubmit}>
           <div className="row mb-4">
-            <h3 className="mb-3 fw-bold text-white">Registro de Cuentas</h3>
+            <h3 className="mb-3 fw-bold text-white">Ajuste de Datos</h3>
             <div className="col">
               <div className="form-outline">
                 
@@ -94,19 +93,6 @@ const Signup = () => {
             {formik.touched.completedName && formik.errors.completedName && <div>{formik.errors.completedName}</div>}
             <label className="form-label text-white" htmlFor="completedName">
               Completed Name
-            </label>
-          </div>
-
-          <div className="form-outline mb-4">
-            <input type="number"
-             id="savingsBank" 
-             className="form-control"
-             name="savingsBank"
-             {...formik.getFieldProps("savingsBank")}
-              />
-              {formik.touched.savingsBank && formik.errors.savingsBank && <div>{formik.errors.savingsBank}</div>}
-            <label className="form-label text-white" htmlFor="savingsBank">
-              Savings Bank
             </label>
           </div>
 
@@ -156,7 +142,7 @@ const Signup = () => {
         </form>
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Signup;
+export default EditProfile
