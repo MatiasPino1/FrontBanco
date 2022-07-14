@@ -3,8 +3,9 @@ import {useFormik} from "formik"
 import * as yup from "yup"
 import Vault from "../public/img/vault.png"
 import Bank from "../public/img/Bank.webp"
-import {Link} from "react-router-dom"
+import {Link,useNavigate} from "react-router-dom"
 const Forgot = () => {
+  const navigate = useNavigate()
   const [token,setToken] = useState([])
   let result = null
   const formik = useFormik({
@@ -30,6 +31,7 @@ const Forgot = () => {
   console.log(tokenSu)
   sessionStorage.setItem("token",tokenSu)
   sessionStorage.setItem("message",message)
+  navigate("/login")
 }})
   return (
     <section class="vh-100">

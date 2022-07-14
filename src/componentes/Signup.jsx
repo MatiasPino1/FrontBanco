@@ -3,7 +3,9 @@ import { useFormik } from "formik";
 import * as yup from "yup";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import {useNavigate} from "react-router-dom"
 const Signup = () => {
+  const navigate = useNavigate()
   const [token, setToken] = useState([]);
   let result = null;
   const formik = useFormik({
@@ -54,6 +56,7 @@ const Signup = () => {
       sessionStorage.setItem("completeName", completeName);
       sessionStorage.setItem("userEmail", userEmail);
       sessionStorage.setItem("userFile", userFile);
+      navigate("/login")
     },
   });
 
