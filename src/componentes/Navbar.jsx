@@ -174,14 +174,6 @@ const Navbar = () => {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link
-                    to={"/"}
-                    className="nav-link"
-                    aria-current="page"
-                    href="signup"
-                  >
-                    Sign Up
-                  </Link>
                 </li>
                 <li className="nav-item dropdown">
                   <a
