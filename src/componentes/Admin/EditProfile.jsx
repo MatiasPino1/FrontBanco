@@ -1,6 +1,8 @@
 import React,{useState} from 'react'
 import {useFormik} from "formik"
 import * as yup from "yup"
+import Navbar from '../Navbar'
+import Footer from '../Footer'
 const EditProfile = () => {
     const [token,setToken] = useState([])
     const savingsBank= Number(localStorage.getItem("savingsBank"))
@@ -45,6 +47,7 @@ const EditProfile = () => {
   return (
     
     <>
+    <Navbar></Navbar>
     <div className="container mt-5 mb-5">
         <form onSubmit={formik.handleSubmit}>
           <div className="row mb-4">
@@ -122,25 +125,13 @@ const EditProfile = () => {
             </label>
           </div>
 
-          <div className="form-check d-flex justify-content-center mb-4">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="form6Example8"
-              checked
-            />
-            <label className="form-check-label text-white" for="form6Example8">
-              {" "}
-              Create an account?{" "}
-            </label>
-          </div>
 
-          <button type="submit" className="noselect button">
+          <button type="submit" className="noselect button btn-edit">
             Submit
           </button>
         </form>
       </div>
+      <Footer></Footer>
     </>
   )
 }
