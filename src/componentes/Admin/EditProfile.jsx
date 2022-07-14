@@ -3,7 +3,9 @@ import {useFormik} from "formik"
 import * as yup from "yup"
 import Navbar from '../Navbar'
 import Footer from '../Footer'
+import {useNavigate} from "react-router-dom"
 const EditProfile = () => {
+  const navigate = useNavigate()
     const [token,setToken] = useState([])
     const savingsBank= Number(localStorage.getItem("savingsBank"))
     let result = null
@@ -41,9 +43,8 @@ const EditProfile = () => {
     })
     result = await result.json()
     console.log(result)
-    
-  }
-    })
+    navigate("/youraccount")
+ }})
   return (
     
     <>
