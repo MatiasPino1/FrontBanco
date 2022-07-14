@@ -102,15 +102,15 @@ const LogIn = () => {
                   </button>
                 </div>
                 <p class="small mb-5 pb-lg-2">
-                  <a class="link-info" href="forgot">
-                    Forgot password?
-                  </a>
+                <Link className="link-info" to={"/forgot"}>
+                Forgot password?
+              </Link>
                 </p>
                 <p>
                   Don't have an account?{" "}
-                  <a href="/signup" class="link-info">
-                    Register here
-                  </a>
+                  <Link className="link-info" to={"/signup"}>
+                Register Here
+              </Link>
                 </p>
               </form>
             </div>

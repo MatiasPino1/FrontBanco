@@ -3,7 +3,7 @@ import {useFormik} from "formik"
 import * as yup from "yup"
 import Vault from "../public/img/vault.png"
 import Bank from "../public/img/Bank.webp"
-
+import {Link} from "react-router-dom"
 const Forgot = () => {
   const [token,setToken] = useState([])
   let result = null
@@ -68,9 +68,9 @@ const Forgot = () => {
                   {sessionStorage.getItem("message")}
                   <p>
                     Don't have an account?{" "}
-                    <a href="/signup" class="link-info">
-                      Register here
-                    </a>
+                    <Link className="link-info" to={"/signup"}>
+                Register Here
+              </Link>
                   </p>
                 </form>
               </div>

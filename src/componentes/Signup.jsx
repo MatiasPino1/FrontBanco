@@ -165,20 +165,6 @@ const Signup = () => {
             </label>
           </div>
 
-          <div className="form-check d-flex justify-content-center mb-4">
-            <input
-              className="form-check-input me-2"
-              type="checkbox"
-              value=""
-              id="form6Example8"
-              checked
-            />
-            <label className="form-check-label text-white" for="form6Example8">
-              {" "}
-              Create an account?{" "}
-            </label>
-          </div>
-
           <button type="submit" className="noselect button btn-register">
             Submit
           </button>

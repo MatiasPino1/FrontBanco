@@ -155,10 +155,10 @@ const Navbar = () => {
                 </li>
                 <li className="nav-item">
                   <Link
-                    to={"signup"}
+                    to={"/signup"}
                     className="nav-link"
                     aria-current="page"
-                    href="signup"
+                    href="/signup"
                   >
                     Register
                   </Link>
