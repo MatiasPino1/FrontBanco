@@ -1,7 +1,7 @@
 import React,{useState} from 'react'
 import {useFormik} from "formik"
 import * as yup from "yup"
-import Vault from "../public/img/Vault.png"
+import Vault from "../public/img/vault.png"
 import Bank from "../public/img/Bank.webp"
 
 const Forgot = () => {
