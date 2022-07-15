@@ -7,7 +7,7 @@ import {useNavigate} from "react-router-dom"
 const EditProfile = () => {
   const navigate = useNavigate()
     const [token,setToken] = useState([])
-    const savingsBank= Number(localStorage.getItem("savingsBank"))
+    const savingsBank= Number(sessionStorage.getItem("savingsBank"))
     let result = null
     const formik = useFormik({
         initialValues:{
