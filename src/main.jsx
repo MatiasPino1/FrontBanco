@@ -19,35 +19,29 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route
-          path="/"
-          element={
-            <App>
-              <Home />
-            </App>
-          }
+        <Route path="/"element={<App><Home/></App>}
         >
         </Route>
-         <Route path="/signup" element={<Signup></Signup>}></Route>
-          <Route path="/forgot" element={<Forgot></Forgot>}></Route>
-          <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/adminsite" element={<AdminSite></AdminSite>}>
-          <Route path="usersinfo" element={<UsersInfo></UsersInfo>}></Route>
-          <Route path="postsinfo" element={<PostsInfo></PostsInfo>}></Route>
+         <Route path="/signup" element={<Signup/>}></Route>
+          <Route path="/forgot" element={<Forgot/>}></Route>
+          <Route path="/login" element={<Login/>}></Route>
+        <Route path="/adminsite" element={<AdminSite/>}>
+          <Route path="usersinfo" element={<UsersInfo/>}></Route>
+          <Route path="postsinfo" element={<PostsInfo/>}></Route>
           <Route
             path="balanceinfo"
-            element={<BalanceInfo></BalanceInfo>}
+            element={<BalanceInfo/>}
           ></Route>
         </Route>
         <Route
           path="/youraccount"
-          element={<YourAccount></YourAccount>}
+          element={<YourAccount/>}
         ></Route>
         <Route
           path="/editprofile"
-          element={<EditProfile></EditProfile>}
+          element={<EditProfile/>}
         ></Route>
-        <Route path="*" element={<NoRute></NoRute>}></Route>
+        <Route path="*" element={<NoRute/>}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
