@@ -38,6 +38,7 @@ const LogIn = () => {
       let completeName = [result.completedName];
       let userEmail = [result.email];
       let savingsBank = [result.savingsBank];
+      let message = [result.message]
       console.log(result);
       console.log(tokenSu);
       console.log(userName);
